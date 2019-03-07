@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint YSHTTPSpider.podspec' to ensure this is a
+# Be sure to run `pod lib lint YSBase.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'YSHTTPSpider'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of YSHTTPSpider.'
+s.name             = 'YSHTTPSpider'
+s.version          = '0.1.0'
+s.summary          = 'WTYS YSHTTPSpider.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,26 +17,24 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+s.description      = 'WTYS YSHTTPSpider 网络库.'
 
-  s.homepage         = 'https://github.com/liufengjun/YSHTTPSpider'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'liufengjun' => 'liufengjun@chinawutong.com' }
-  s.source           = { :git => 'https://github.com/liufengjun/YSHTTPSpider.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+s.homepage         = 'http://git.chinawutong.net:3000/liufengjun/YSHTTPSpider.git'
+# s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'liufengjun' => 'liufengjun@chinawutong.com' }
+s.source           = { :git => 'http://git.chinawutong.net:3000/liufengjun/YSHTTPSpider.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+s.ios.deployment_target = '9.0'
 
-  s.source_files = 'YSHTTPSpider/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'YSHTTPSpider' => ['YSHTTPSpider/Assets/*.png']
-  # }
+s.source_files = 'YSHTTPSpider/Classes/**/*'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+# s.resource_bundles = {
+#   'YSBase' => ['YSHTTPSpider/Assets/*.png']
+# }
+
+# s.public_header_files = 'Pod/Classes/**/*.h'
+s.frameworks = 'UIKit'
+s.dependency 'Alamofire'
+s.dependency 'HandyJSON'
 end

@@ -40,10 +40,10 @@
 		607FACE51AFB9204008FA782 /* YSHTTPSpider_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YSHTTPSpider_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6981D635F9196F02591EDBB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		6BC64A7A0BCB12B3336E7B59 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6981D635F9196F02591EDBB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		6BC64A7A0BCB12B3336E7B59 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7FB86F033BA53262C9B2F2DC /* Pods_YSHTTPSpider_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F2A94BDF9DDE651B6B33D1F /* YSHTTPSpider.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = YSHTTPSpider.podspec; path = ../YSHTTPSpider.podspec; sourceTree = "<group>"; };
+		8F2A94BDF9DDE651B6B33D1F /* YSHTTPSpider.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YSHTTPSpider.podspec; path = ../YSHTTPSpider.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B85F7B4DC03382B991DC4AAE /* Pods_YSHTTPSpider_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7985B96964CF6502E6B41D /* Pods-YSHTTPSpider_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Tests.release.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Tests/Pods-YSHTTPSpider_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E40EE7BE6EFCD679C6EF8CEC /* Pods-YSHTTPSpider_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Example.debug.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Example/Pods-YSHTTPSpider_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 				19CCCF1E5C2E20389F81D2CF /* Pods-YSHTTPSpider_Tests.debug.xcconfig */,
 				CC7985B96964CF6502E6B41D /* Pods-YSHTTPSpider_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -271,12 +270,16 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YSHTTPSpider_Example/Pods-YSHTTPSpider_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YSHTTPSpider/YSHTTPSpider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YSHTTPSpider.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
