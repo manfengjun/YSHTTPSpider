@@ -1,6 +1,6 @@
 # YSHTTPSpider
 
-[![CI Status](https://img.shields.io/travis/liufengjun/YSHTTPSpider.svg?style=flat)](https://travis-ci.org/liufengjun/YSHTTPSpider)
+[![CI Status](https://img.shields.io/travis/acct<blob>=<NULL>/YSHTTPSpider.svg?style=flat)](https://travis-ci.org/acct<blob>=<NULL>/YSHTTPSpider)
 [![Version](https://img.shields.io/cocoapods/v/YSHTTPSpider.svg?style=flat)](https://cocoapods.org/pods/YSHTTPSpider)
 [![License](https://img.shields.io/cocoapods/l/YSHTTPSpider.svg?style=flat)](https://cocoapods.org/pods/YSHTTPSpider)
 [![Platform](https://img.shields.io/cocoapods/p/YSHTTPSpider.svg?style=flat)](https://cocoapods.org/pods/YSHTTPSpider)
@@ -22,7 +22,7 @@ pod 'YSHTTPSpider'
 
 ## Author
 
-liufengjun, liufengjun@chinawutong.com
+acct<blob>=<NULL>, chinafengjun@gmail.com
 
 ## License
 

@@ -66,6 +66,10 @@ extension SpiTarget {
     public var encoderType: SpiEncoderType {
         return SpiManager.config.encoderType ?? .url
     }
+    
+}
+
+extension SpiTarget{
     /// 根据当前配置生成 URL
     ///
     /// return:
@@ -79,20 +83,4 @@ extension SpiTarget {
             throw SpiError.invalidURL(baseURL: baseURL, path: path)
         }
     }
-}
-
-extension SpiTarget{
-    /// 根据当前配置生成 URL
-    ///
-    /// return:
-    /// - URL:  拼接 baseURL 及 path 生成的 url
-    /// - BatError: bathURL 或 path 不符合规则
-//    func asURL() throws -> URL {
-//        if var url = URL(string: baseURL){
-//            url.appendPathComponent(path)
-//            return url
-//        } else {
-//            throw SpiError.invalidURL(baseURL: baseURL, path: path)
-//        }
-//    }
 }

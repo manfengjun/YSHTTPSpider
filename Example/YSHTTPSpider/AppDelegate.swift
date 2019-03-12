@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  YSHTTPSpider
 //
-//  Created by liufengjun on 03/06/2019.
-//  Copyright (c) 2019 liufengjun. All rights reserved.
+//  Created by acct<blob>=<NULL> on 03/03/2019.
+//  Copyright (c) 2019 acct<blob>=<NULL>. All rights reserved.
 //
 
 import UIKit

@@ -170,6 +170,24 @@ extension SpiError.ExecuteFailureReason {
     }
 }
 extension SpiError: LocalizedError {
+    
+    var status: Int? {
+        switch self {
+        case .executeFailed(let reason):
+            return reason.status
+        default:
+            return nil
+        }
+    }
+    var message: String? {
+        switch self {
+        case .executeFailed(let reason):
+            return reason.message
+        default:
+            return nil
+        }
+    }
+    
     public var errorDescription: String?{
         switch self {
         case .invalidURL(let base, let path):
@@ -237,6 +255,22 @@ extension SpiError.ResponseValidationFailureReason: LocalizedError{
     }
 }
 extension SpiError.ExecuteFailureReason: LocalizedError {
+    public var status: Int? {
+        switch self {
+        case .executeFail(let code, _):
+            return code
+        default:
+            return nil
+        }
+    }
+    public var message: String? {
+        switch self {
+        case .executeFail( _, let msg):
+            return msg
+        default:
+            return nil
+        }
+    }
     public var errorDescription: String?{
         switch self {
         case .executeFail( _, let msg):

@@ -13,8 +13,10 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		DEA74B302DA1500B77CEBBB1 /* Pods_YSHTTPSpider_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB86F033BA53262C9B2F2DC /* Pods_YSHTTPSpider_Example.framework */; };
-		FE7AF9407639E886C05500F6 /* Pods_YSHTTPSpider_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85F7B4DC03382B991DC4AAE /* Pods_YSHTTPSpider_Tests.framework */; };
+		BF6536252231646E0010C89F /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6536242231646E0010C89F /* AppInfo.swift */; };
+		BF869D13222C0053005F66C1 /* Common+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF869D12222C0053005F66C1 /* Common+Api.swift */; };
+		C20C3E24B389CCFC2E988380 /* Pods_YSHTTPSpider_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF700633EA822D4447CA4D3 /* Pods_YSHTTPSpider_Tests.framework */; };
+		EBF955A2FB3586039A22E053 /* Pods_YSHTTPSpider_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86277DD1CE30919D1AE21CBD /* Pods_YSHTTPSpider_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,8 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19CCCF1E5C2E20389F81D2CF /* Pods-YSHTTPSpider_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Tests.debug.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Tests/Pods-YSHTTPSpider_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B6A71D3A5EB9C62721F5A39 /* Pods-YSHTTPSpider_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Example.release.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Example/Pods-YSHTTPSpider_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3AD4DAEDFD3FD5511AED868C /* YSHTTPSpider.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YSHTTPSpider.podspec; path = ../YSHTTPSpider.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3BAD7C43736C3A150A383E93 /* Pods-YSHTTPSpider_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Example.release.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Example/Pods-YSHTTPSpider_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4E85BE29E3B7E9F223EFF84A /* Pods-YSHTTPSpider_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Example.debug.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Example/Pods-YSHTTPSpider_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		51543BED63DF320A17FB9F74 /* Pods-YSHTTPSpider_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Tests.debug.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Tests/Pods-YSHTTPSpider_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* YSHTTPSpider_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSHTTPSpider_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,13 +44,13 @@
 		607FACE51AFB9204008FA782 /* YSHTTPSpider_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YSHTTPSpider_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6981D635F9196F02591EDBB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		6BC64A7A0BCB12B3336E7B59 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		7FB86F033BA53262C9B2F2DC /* Pods_YSHTTPSpider_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F2A94BDF9DDE651B6B33D1F /* YSHTTPSpider.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YSHTTPSpider.podspec; path = ../YSHTTPSpider.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B85F7B4DC03382B991DC4AAE /* Pods_YSHTTPSpider_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC7985B96964CF6502E6B41D /* Pods-YSHTTPSpider_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Tests.release.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Tests/Pods-YSHTTPSpider_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E40EE7BE6EFCD679C6EF8CEC /* Pods-YSHTTPSpider_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Example.debug.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Example/Pods-YSHTTPSpider_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		7164BB7B4125C44A44491D92 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		86277DD1CE30919D1AE21CBD /* Pods_YSHTTPSpider_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FF700633EA822D4447CA4D3 /* Pods_YSHTTPSpider_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6536242231646E0010C89F /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		BF869D12222C0053005F66C1 /* Common+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Common+Api.swift"; sourceTree = "<group>"; };
+		C730F38199E7E3615F1E9E33 /* Pods-YSHTTPSpider_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSHTTPSpider_Tests.release.xcconfig"; path = "Target Support Files/Pods-YSHTTPSpider_Tests/Pods-YSHTTPSpider_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E89F7B1C27F509CED886F7DA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEA74B302DA1500B77CEBBB1 /* Pods_YSHTTPSpider_Example.framework in Frameworks */,
+				EBF955A2FB3586039A22E053 /* Pods_YSHTTPSpider_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,22 +66,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE7AF9407639E886C05500F6 /* Pods_YSHTTPSpider_Tests.framework in Frameworks */,
+				C20C3E24B389CCFC2E988380 /* Pods_YSHTTPSpider_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		338E992F6DDEA83D80FDEA0E /* Pods */ = {
+		17C7C0468891C372D9CF6CD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E40EE7BE6EFCD679C6EF8CEC /* Pods-YSHTTPSpider_Example.debug.xcconfig */,
-				4B6A71D3A5EB9C62721F5A39 /* Pods-YSHTTPSpider_Example.release.xcconfig */,
-				19CCCF1E5C2E20389F81D2CF /* Pods-YSHTTPSpider_Tests.debug.xcconfig */,
-				CC7985B96964CF6502E6B41D /* Pods-YSHTTPSpider_Tests.release.xcconfig */,
+				86277DD1CE30919D1AE21CBD /* Pods_YSHTTPSpider_Example.framework */,
+				9FF700633EA822D4447CA4D3 /* Pods_YSHTTPSpider_Tests.framework */,
 			);
-			path = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -87,8 +89,8 @@
 				607FACD21AFB9204008FA782 /* Example for YSHTTPSpider */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				338E992F6DDEA83D80FDEA0E /* Pods */,
-				66C6EDC1F49C6ACF73A17F5D /* Frameworks */,
+				CA42736A598DAE0FE4FBC3D0 /* Pods */,
+				17C7C0468891C372D9CF6CD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +107,11 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				BF869D12222C0053005F66C1 /* Common+Api.swift */,
+				BF6536242231646E0010C89F /* AppInfo.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				7164BB7B4125C44A44491D92 /* README.md */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -143,20 +148,21 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				8F2A94BDF9DDE651B6B33D1F /* YSHTTPSpider.podspec */,
-				6981D635F9196F02591EDBB1 /* README.md */,
-				6BC64A7A0BCB12B3336E7B59 /* LICENSE */,
+				3AD4DAEDFD3FD5511AED868C /* YSHTTPSpider.podspec */,
+				E89F7B1C27F509CED886F7DA /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		66C6EDC1F49C6ACF73A17F5D /* Frameworks */ = {
+		CA42736A598DAE0FE4FBC3D0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7FB86F033BA53262C9B2F2DC /* Pods_YSHTTPSpider_Example.framework */,
-				B85F7B4DC03382B991DC4AAE /* Pods_YSHTTPSpider_Tests.framework */,
+				4E85BE29E3B7E9F223EFF84A /* Pods-YSHTTPSpider_Example.debug.xcconfig */,
+				3BAD7C43736C3A150A383E93 /* Pods-YSHTTPSpider_Example.release.xcconfig */,
+				51543BED63DF320A17FB9F74 /* Pods-YSHTTPSpider_Tests.debug.xcconfig */,
+				C730F38199E7E3615F1E9E33 /* Pods-YSHTTPSpider_Tests.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,11 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "YSHTTPSpider_Example" */;
 			buildPhases = (
-				2C46E945A789797D1BBBE66A /* [CP] Check Pods Manifest.lock */,
+				43431C1161ADB1DB0BD30FB3 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				18305F6A3A1E108AEAB63CD2 /* [CP] Embed Pods Frameworks */,
+				9FFCF4609166BE58C0977F15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,7 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "YSHTTPSpider_Tests" */;
 			buildPhases = (
-				EF1A88D375B89DAC9EF4A43B /* [CP] Check Pods Manifest.lock */,
+				EFC33C0421DA3190636DA61C /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -261,7 +267,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		18305F6A3A1E108AEAB63CD2 /* [CP] Embed Pods Frameworks */ = {
+		43431C1161ADB1DB0BD30FB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YSHTTPSpider_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FFCF4609166BE58C0977F15 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -287,29 +315,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YSHTTPSpider_Example/Pods-YSHTTPSpider_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2C46E945A789797D1BBBE66A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YSHTTPSpider_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF1A88D375B89DAC9EF4A43B /* [CP] Check Pods Manifest.lock */ = {
+		EFC33C0421DA3190636DA61C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,7 +345,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				BF6536252231646E0010C89F /* AppInfo.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				BF869D13222C0053005F66C1 /* Common+Api.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +490,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E40EE7BE6EFCD679C6EF8CEC /* Pods-YSHTTPSpider_Example.debug.xcconfig */;
+			baseConfigurationReference = 4E85BE29E3B7E9F223EFF84A /* Pods-YSHTTPSpider_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YSHTTPSpider/Info.plist;
@@ -497,7 +505,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B6A71D3A5EB9C62721F5A39 /* Pods-YSHTTPSpider_Example.release.xcconfig */;
+			baseConfigurationReference = 3BAD7C43736C3A150A383E93 /* Pods-YSHTTPSpider_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YSHTTPSpider/Info.plist;
@@ -512,7 +520,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19CCCF1E5C2E20389F81D2CF /* Pods-YSHTTPSpider_Tests.debug.xcconfig */;
+			baseConfigurationReference = 51543BED63DF320A17FB9F74 /* Pods-YSHTTPSpider_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -534,7 +542,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7985B96964CF6502E6B41D /* Pods-YSHTTPSpider_Tests.release.xcconfig */;
+			baseConfigurationReference = C730F38199E7E3615F1E9E33 /* Pods-YSHTTPSpider_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -17,14 +17,11 @@ open class Spi {
     }
     public func asURLRequest() throws -> URLRequest {
         var request = try URLRequest(url: target.asURL())
-        
         request.allowsCellularAccess = target.allowsCellularAccess
         request.allHTTPHeaderFields = target.headers
         request.httpMethod = target.method.rawValue
         request.timeoutInterval = target.timeoutInterval
-        
-        //            features?.forEach{ $0.config(&request) }
-        
+        SessionManager.default.startRequestsImmediately = target.startImmediately
         var encoder: SpiEncoder!
         switch target.encoderType {
         case .url:
@@ -39,14 +36,7 @@ open class Spi {
     public func send() -> DataRequest {
         let asRequest = try! asURLRequest()
         let request = Alamofire.request(asRequest as URLRequestConvertible)
-        if (target.startImmediately) {
-            request.resume()
-        }
         return request
-
     }
-
-    
 }
-
 

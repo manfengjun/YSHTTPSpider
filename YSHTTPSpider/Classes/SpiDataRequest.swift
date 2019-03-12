@@ -8,38 +8,11 @@
 import UIKit
 import Alamofire
 import HandyJSON
-
-public struct ObjectResponseSerializer<Value: HandyJSON>: DataResponseSerializerProtocol {
-    
-    public typealias SerializedObject = Value
-    
-    public var serializeResponse: (URLRequest?, HTTPURLResponse?, Data?, Error?) -> Result<Value>
-    
-    public init(serializeResponse: @escaping (URLRequest?, HTTPURLResponse?, Data?, Error?) -> Result<Value>) {
-        self.serializeResponse = serializeResponse
-    }
-}
-public protocol DataResponsesSerializerProtocol {
-    associatedtype SerializedObject
-    
-    var serializeResponse: (URLRequest?, HTTPURLResponse?, Data?, Error?) -> Result<[SerializedObject]> { get }
-}
-public struct ObjectsResponseSerializer<Value>: DataResponsesSerializerProtocol {
-    public var serializeResponse: (URLRequest?, HTTPURLResponse?, Data?, Error?) -> Result<[Value]>
-    
-    public typealias SerializedObject = Value
-    
-
-    public init(serializeResponse: @escaping (URLRequest?, HTTPURLResponse?, Data?, Error?) -> Result<[Value]>) {
-        self.serializeResponse = serializeResponse
-    }
-}
-
 // MARK: - 解析JSON
 extension DataRequest {
     public static func spiJsonSerializer(
         options: JSONSerialization.ReadingOptions = .allowFragments)
-        -> DataResponseSerializer<Any>
+        -> DataResponseSerializer<[String:Any]>
     {
         return DataResponseSerializer { _, response, data, error in
             return Request.serializeCodeResponseJSON(options: options, response: response, data: data, error: error)
@@ -54,10 +27,10 @@ extension DataRequest {
     ///   - completionHandler:
     /// - Returns: 
     @discardableResult
-    public func spiResponseJSON(
+    public func responseSpiJSON(
         queue: DispatchQueue? = nil,
         options: JSONSerialization.ReadingOptions = .allowFragments,
-        completionHandler: @escaping (DataResponse<Any>) -> Void)
+        completionHandler: @escaping (DataResponse<[String:Any]>) -> Void)
         -> Self
     {
         return response(
@@ -70,34 +43,33 @@ extension DataRequest {
 
 // MARK: - 解析对象
 extension DataRequest {
-    public static func spiObjectSerializer<T: HandyJSON>(
+    public static func ObjectSerializer<T: HandyJSON>(
         options: JSONSerialization.ReadingOptions = .allowFragments, designatedPath: String? = nil)
-        -> ObjectResponseSerializer<T>
+        -> DataResponseSerializer<T>
     {
-        return ObjectResponseSerializer(serializeResponse: { (request, response, data, error) -> Result<T> in
+        return DataResponseSerializer<T>(serializeResponse: { (request, response, data, error) -> Result<T> in
             let serializeResponse = Request.serializeCodeResponseJSON(options: options, response: response, data: data, error: error)
             switch serializeResponse {
             case .success(let value):
-                if let json = value as? [String:Any] {
-                    if let value = json[SpiManager.config.result_key.RESULT_DATA] as? T {
-                        return .success(value)
-                    } else if let object = json[SpiManager.config.result_key.RESULT_DATA] {
-                        if let model = designatedPath == nil ? T.self.deserialize(from: object as? [String:Any]) : T.self.deserialize(from: object as? [String:Any], designatedPath: designatedPath){
-                            return .success(model)
-                        }
-                        else {
-                            return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
-                            
-                        }
-                    } else {
+                if let value = value[SpiManager.config.result_key.RESULT_DATA] as? T {
+                    return .success(value)
+                } else {
+                    guard let object = value[SpiManager.config.result_key.RESULT_DATA] as? [String:Any] else {
                         return .failure(SpiError.responseSerializationFailed(reason: .dataLengthIsZero))
                     }
-                }
-                else {
+                    if let path = designatedPath,path.count > 0 {
+                        if let model = T.self.deserialize(from: object, designatedPath: path) {
+                            return .success(model)
+                        }
+                    }
+                    else {
+                        if let model = T.self.deserialize(from: object) {
+                            return .success(model)
+                        }
+                    }
                     return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
 
                 }
-                
             case .failure(let error):
                 return .failure(error)
             }
@@ -114,58 +86,72 @@ extension DataRequest {
     ///   - completionHandler:
     /// - Returns:
     @discardableResult
-    public func spiResponseObject<T: HandyJSON>(designatedPath: String? = nil, queue: DispatchQueue? = nil, options: JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
-        return response(responseSerializer: DataRequest.spiObjectSerializer(options: options), completionHandler: completionHandler)
+    public func responseSpiObject<T: HandyJSON>(designatedPath: String? = nil, queue: DispatchQueue? = nil, options: JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
+        return response(responseSerializer: DataRequest.ObjectSerializer(options: options), completionHandler: completionHandler)
     }
+    
 }
 // MARK: - 解析对象数组
 extension DataRequest {
-    public static func spiObjectsSerializer<T: HandyJSON>(
-        options: JSONSerialization.ReadingOptions = .allowFragments, designa tedPath: String? = nil)
-        -> ObjectsResponseSerializer<[T]>
-    {
-        return ObjectsResponseSerializer(serializeResponse: { (request, response, data, error) -> Result<[T]> in
+    public static func ObjectsSerializer<T: HandyJSON>(
+        designatedPath: String? = nil,
+        queue: DispatchQueue? = nil,
+        options: JSONSerialization.ReadingOptions = .allowFragments)
+        -> DataResponseSerializer<[T]> {
+        return DataResponseSerializer(serializeResponse: { (request, response, data, error) -> Result<[T]> in
             let serializeResponse = Request.serializeCodeResponseJSON(options: options, response: response, data: data, error: error)
             switch serializeResponse {
             case .success(let value):
-                if let json = value as? [String:Any] {
-                    if let value = json[SpiManager.config.result_key.RESULT_DATA] as? [T] {
-                        return .success(value)
-                    } else if let object = json[SpiManager.config.result_key.RESULT_DATA] {
-                        if let model = designatedPath == nil ? [T].self.deserialize(from: object as? [String:Any]) : [T].self.deserialize(from: object as? [String:Any], designatedPath: designatedPath){
-                            return .success(model)
-                        }
-                        else {
-                            return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
-                            
-                        }
-                    } else {
+                if let value = value[SpiManager.config.result_key.RESULT_DATA] as? [T] {
+                    return .success(value)
+                } else {
+                    guard let data = value[SpiManager.config.result_key.RESULT_DATA] else {
                         return .failure(SpiError.responseSerializationFailed(reason: .dataLengthIsZero))
                     }
+                    if let path = designatedPath,path.count > 0 {
+                        guard let datajson = data as? [String:Any] else {
+                            return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
+                        }
+                        guard let array = datajson[path] as? [[String:Any]] else {
+                            return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
+                        }
+                        guard let models = [T].deserialize(from: array) else {
+                            return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
+                        }
+                        return .success(models as! [T])
+                    }
+                    else {
+                        guard let array = data as? [[String:Any]] else {
+                            return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
+                        }
+                        guard let models = [T].deserialize(from: array) else {
+                            return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
+                        }
+                        return .success(models as! [T])
+                    }
                 }
-                else {
-                    return .failure(SpiError.responseSerializationFailed(reason: .objectFailed))
-                    
-                }
-                
             case .failure(let error):
                 return .failure(error)
             }
         })
-        
     }
-    
-    /// 解析Object
+    /// 解析对象数组
     ///
     /// - Parameters:
-    ///   - designatedPath: 解析路径
+    ///   - designatedPath:
     ///   - queue:
     ///   - options:
     ///   - completionHandler:
     /// - Returns:
     @discardableResult
-    public func spiResponseObjects<T: HandyJSON>(designatedPath: String? = nil, queue: DispatchQueue? = nil, options: JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self {
-        return response(responseSerializer: DataRequest.spiObjectSerializer(options: options), completionHandler: completionHandler)
+    public func responseSpiObjects<T: HandyJSON>(
+        designatedPath: String? = nil,
+        queue: DispatchQueue? = nil,
+        options: JSONSerialization.ReadingOptions = .allowFragments,
+        completionHandler: @escaping (DataResponse<[T]>) -> Void)
+        -> Self
+    {
+        return response(queue: queue, responseSerializer: DataRequest.ObjectsSerializer(designatedPath: designatedPath, queue: queue, options: options), completionHandler: completionHandler)
     }
 }
 
@@ -175,7 +161,7 @@ extension Request {
         response: HTTPURLResponse?,
         data: Data?,
         error: Error?)
-        -> Result<Any>
+        -> Result<[String:Any]>
     {
         guard error == nil else { return .failure(error!) }
         if let response = response, emptyDataStatusCodes.contains(response.statusCode) { return .success([:]) }
@@ -184,21 +170,22 @@ extension Request {
         }
         do {
             let jsonData = try JSONSerialization.jsonObject(with: validData, options: options)
-            if let json = jsonData as? [String:Any] {
-                if let status = json[SpiManager.config.result_key.RESULT_CODE] as? Int, (status == SpiManager.config.result_key.RESULT_SUCCESS){
-                    return .success(json)
-                } else {
-                    if let status = json[SpiManager.config.result_key.RESULT_CODE] as? Int {
-                        return .failure(SpiError.executeFailed(reason: .executeFail(code: status, msg: json[SpiManager.config.result_key.RESULT_MSG] as? String)))
-                    }
+            guard let json = jsonData as? [String:Any] else {
+                return .failure(SpiError.responseSerializationFailed(reason: .jsonIsNotADictionary))
+            }
+            if let status = json[SpiManager.config.result_key.RESULT_CODE] as? Int, (status == SpiManager.config.result_key.RESULT_SUCCESS){
+                return .success(json)
+            } else {
+                guard let status = json[SpiManager.config.result_key.RESULT_CODE] as? Int else{
                     return .failure(SpiError.executeFailed(reason: .unlegal))
                 }
+                return .failure(SpiError.executeFailed(reason: .executeFail(code: status, msg: json[SpiManager.config.result_key.RESULT_MSG] as? String)))
             }
-            return .failure(SpiError.responseSerializationFailed(reason: .jsonIsNotADictionary))
             
         } catch {
             return .failure(SpiError.responseSerializationFailed(reason: .jsonSerializationFailed(error)))
         }
     }
+    
 }
 private let emptyDataStatusCodes: Set<Int> = [204, 205]

@@ -19,11 +19,11 @@ s.summary          = 'WTYS YSHTTPSpider.'
 
 s.description      = 'WTYS YSHTTPSpider 网络库.'
 
-s.homepage         = 'http://git.chinawutong.net:3000/liufengjun/YSHTTPSpider.git'
+s.homepage         = 'https://git.dev.tencent.com/manfengjun/YSHTTPSpider.git'
 # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'liufengjun' => 'liufengjun@chinawutong.com' }
-s.source           = { :git => 'http://git.chinawutong.net:3000/liufengjun/YSHTTPSpider.git', :tag => s.version.to_s }
+s.source           = { :git => 'https://git.dev.tencent.com/manfengjun/YSHTTPSpider.git', :tag => s.version.to_s }
 
 s.ios.deployment_target = '9.0'
 

@@ -8,25 +8,6 @@
 
 import UIKit
 import Alamofire
-public struct RESULT_KEY {
-    var RESULT_CODE: String = "status"
-    var RESULT_MSG: String = "msg"
-    var RESULT_DATA: String = "data"
-    var RESULT_SUCCESS: Int = 1
-    public init(code: String = "status",
-                msg: String = "msg",
-                data: String = "data",
-                success: Int = 0) {
-        self.RESULT_CODE = code
-        self.RESULT_MSG = msg
-        self.RESULT_DATA = data
-        self.RESULT_SUCCESS = success
-    }
-    init() {
-        
-    }
-    
-}
 open class SpiManager {
     
     // MARK: - 统一设置
@@ -63,7 +44,28 @@ open class SpiManager {
     
     
     
-    init() {}
+    init() {
+        
+    }
     
+    
+}
+public struct RESULT_KEY {
+    var RESULT_CODE: String = "status"
+    var RESULT_MSG: String = "msg"
+    var RESULT_DATA: String = "data"
+    var RESULT_SUCCESS: Int = 1
+    public init(code: String = "status",
+                msg: String = "msg",
+                data: String = "data",
+                success: Int = 0) {
+        self.RESULT_CODE = code
+        self.RESULT_MSG = msg
+        self.RESULT_DATA = data
+        self.RESULT_SUCCESS = success
+    }
+    init() {
+        
+    }
     
 }
