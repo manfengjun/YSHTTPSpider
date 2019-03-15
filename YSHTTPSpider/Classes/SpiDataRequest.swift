@@ -12,10 +12,22 @@ import HandyJSON
 extension DataRequest {
     public static func spiJsonSerializer(
         options: JSONSerialization.ReadingOptions = .allowFragments)
-        -> DataResponseSerializer<[String:Any]>
+        -> DataResponseSerializer<Any>
     {
         return DataResponseSerializer { _, response, data, error in
-            return Request.serializeCodeResponseJSON(options: options, response: response, data: data, error: error)
+            let serializeResponse = Request.serializeCodeResponseJSON(options: options, response: response, data: data, error: error)
+            switch serializeResponse {
+            case .success(let value):
+                guard let value = value as? [String:Any] else {
+                    return .failure(SpiError.responseSerializationFailed(reason: .dataLengthIsZero))
+                }
+                if let data = value[SpiManager.config.result_key.RESULT_DATA] {
+                    return .success(data)
+                }
+                return .failure(SpiError.responseSerializationFailed(reason: .dataLengthIsZero))
+            case .failure(let error):
+                return .failure(error)
+            }
         }
     }
     
@@ -30,7 +42,7 @@ extension DataRequest {
     public func responseSpiJSON(
         queue: DispatchQueue? = nil,
         options: JSONSerialization.ReadingOptions = .allowFragments,
-        completionHandler: @escaping (DataResponse<[String:Any]>) -> Void)
+        completionHandler: @escaping (DataResponse<Any>) -> Void)
         -> Self
     {
         return response(
@@ -51,6 +63,9 @@ extension DataRequest {
             let serializeResponse = Request.serializeCodeResponseJSON(options: options, response: response, data: data, error: error)
             switch serializeResponse {
             case .success(let value):
+                guard let value = value as? [String:Any] else {
+                    return .failure(SpiError.responseSerializationFailed(reason: .dataLengthIsZero))
+                }
                 if let value = value[SpiManager.config.result_key.RESULT_DATA] as? T {
                     return .success(value)
                 } else {
@@ -102,6 +117,9 @@ extension DataRequest {
             let serializeResponse = Request.serializeCodeResponseJSON(options: options, response: response, data: data, error: error)
             switch serializeResponse {
             case .success(let value):
+                guard let value = value as? [String:Any] else {
+                    return .failure(SpiError.responseSerializationFailed(reason: .dataLengthIsZero))
+                }
                 if let value = value[SpiManager.config.result_key.RESULT_DATA] as? [T] {
                     return .success(value)
                 } else {
@@ -161,7 +179,7 @@ extension Request {
         response: HTTPURLResponse?,
         data: Data?,
         error: Error?)
-        -> Result<[String:Any]>
+        -> Result<Any>
     {
         guard error == nil else { return .failure(error!) }
         if let response = response, emptyDataStatusCodes.contains(response.statusCode) { return .success([:]) }
