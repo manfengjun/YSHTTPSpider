@@ -26,15 +26,17 @@ open class SpiManager {
                                      startImmediately: Bool = true,
                                      allowsCellucerAccess: Bool = true,
                                      timeoutInterval: TimeInterval = 60,
-                                     encoderType: SpiEncoderType = .url,
-                                     result_key: RESULT_KEY) {
+                                     encoderType: SpiEncoderType = .json,
+                                     result_key: RESULT_KEY? = nil) {
             self.baseURL = baseURL
             self.httpHeaders = httpHeaders
             self.startImmediately = startImmediately
             self.allowsCellucerAccess = allowsCellucerAccess
             self.timeoutInterval = timeoutInterval
             self.encoderType = encoderType
-            self.result_key = result_key
+            if let resultKey = result_key {
+                self.result_key = resultKey
+            }
         }
     }
     

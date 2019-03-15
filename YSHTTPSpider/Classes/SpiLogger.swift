@@ -43,9 +43,16 @@ public class SpiLogger {
         }
     }
     public static func outResponse(userInfo: [AnyHashable : Any]?) {
+        var request_url = ""
+        if let task = userInfo?[Notification.Key.Task] as? URLSessionTask {
+            let netRequest = task.originalRequest?.urlRequest
+            if let url = netRequest?.description {
+                request_url = url
+            }
+        }
         if let response = userInfo?[Notification.Key.ResponseData] as? Data {
             if let data = response.xToJson() {
-                print(">> Return Data:\n\(data)")
+                print("\(request_url) >> Return Data:\n\(data)")
             } else {
                 print(">< Can not formatter data")
             }

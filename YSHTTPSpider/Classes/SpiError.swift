@@ -171,7 +171,7 @@ extension SpiError.ExecuteFailureReason {
 }
 extension SpiError: LocalizedError {
     
-    var status: Int? {
+    public var status: Int? {
         switch self {
         case .executeFailed(let reason):
             return reason.status
@@ -179,12 +179,12 @@ extension SpiError: LocalizedError {
             return nil
         }
     }
-    var message: String? {
+    public var message: String? {
         switch self {
         case .executeFailed(let reason):
             return reason.message
         default:
-            return nil
+            return "服务器异常，请稍后再试!"
         }
     }
     
@@ -233,7 +233,7 @@ extension SpiError.ResponseSerializationFailureReason: LocalizedError{
 }
 
 extension SpiError.ResponseValidationFailureReason: LocalizedError{
-    var localizedDescription: String {
+    public var localizedDescription: String {
         switch self {
         case .dataFileNil:
             return "Response could not be validated, data file was nil."
