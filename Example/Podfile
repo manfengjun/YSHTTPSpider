@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'YSHTTPSpider_Example' do
+  pod 'YSHTTPSpider', :path => '../'
+
+  target 'YSHTTPSpider_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
