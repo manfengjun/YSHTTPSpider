@@ -21,14 +21,7 @@ class ViewController: UIViewController {
             SpiLogger.outStream(notification.userInfo, name: Notification.Name.Task.DidComplete)
         }
         
-        SpiManager.config.setConfig(result_key:
-            RESULT_KEY(
-                code: "code",
-                msg: "message",
-                data: "result",
-                success: 200
-            )
-        )
+
         Spi(Common.getAllRegion()).send().responseSpiObjects { (response:DataResponse<[AppInfo]>) in
             switch response.result {
             case .success(let value):

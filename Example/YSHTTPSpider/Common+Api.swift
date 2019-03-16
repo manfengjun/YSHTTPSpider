@@ -27,7 +27,9 @@ extension Common : SpiTarget {
         
         }
     }
-    
+    var encoderType: SpiEncoderType {
+        return .url
+    }
     var method: HTTPMethod {
         return .get
     }

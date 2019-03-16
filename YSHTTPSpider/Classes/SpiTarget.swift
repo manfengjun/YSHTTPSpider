@@ -64,7 +64,7 @@ extension SpiTarget {
     }
     
     public var encoderType: SpiEncoderType {
-        return SpiManager.config.encoderType ?? .url
+        return SpiManager.config.encoderType ?? .json
     }
     
 }

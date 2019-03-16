@@ -32,7 +32,7 @@ public class SpiLogger {
         if let task = userInfo?[Notification.Key.Task] as? URLSessionTask {
             let netRequest = task.originalRequest?.urlRequest
             if let url = netRequest?.description {
-                print("=> " + url)
+                print("✅ " + url)
             }
             if let httpMethod = netRequest?.httpMethod {
                 print("\t METHOD:\(httpMethod)")
@@ -52,9 +52,10 @@ public class SpiLogger {
         }
         if let response = userInfo?[Notification.Key.ResponseData] as? Data {
             if let data = response.xToJson() {
-                print("\(request_url) >> Return Data:\n\(data)")
+                print("🇨🇳 \(request_url)")
+                print("🇨🇳 Return Data:\n\(data)")
             } else {
-                print(">< Can not formatter data")
+                print("❌ Can not formatter data")
             }
             
         }
