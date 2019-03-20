@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		818E0CE72242467600EBFBBD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 818E0CE62242467600EBFBBD /* README.md */; };
 		BF6536252231646E0010C89F /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6536242231646E0010C89F /* AppInfo.swift */; };
 		BF869D13222C0053005F66C1 /* Common+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF869D12222C0053005F66C1 /* Common+Api.swift */; };
 		C20C3E24B389CCFC2E988380 /* Pods_YSHTTPSpider_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF700633EA822D4447CA4D3 /* Pods_YSHTTPSpider_Tests.framework */; };
@@ -45,6 +46,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7164BB7B4125C44A44491D92 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		818E0CE62242467600EBFBBD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		86277DD1CE30919D1AE21CBD /* Pods_YSHTTPSpider_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF700633EA822D4447CA4D3 /* Pods_YSHTTPSpider_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSHTTPSpider_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6536242231646E0010C89F /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				818E0CE62242467600EBFBBD /* README.md */,
 				3AD4DAEDFD3FD5511AED868C /* YSHTTPSpider.podspec */,
 				E89F7B1C27F509CED886F7DA /* LICENSE */,
 			);
@@ -253,6 +256,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				818E0CE72242467600EBFBBD /* README.md in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

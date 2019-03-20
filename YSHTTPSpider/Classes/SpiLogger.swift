@@ -53,7 +53,8 @@ public class SpiLogger {
         if let response = userInfo?[Notification.Key.ResponseData] as? Data {
             if let data = response.xToJson() {
                 print("🇨🇳 \(request_url)")
-                print("🇨🇳 Return Data:\n\(data)")
+                print("🇨🇳 Return Data:")
+                print("🇨🇳 \(data)")
             } else {
                 print("❌ Can not formatter data")
             }
