@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'YSHTTPSpider'
-s.version          = '0.1.3'
+s.version          = '0.1.4'
 s.summary          = 'JUN YSHTTPSpider.'
 
 # This description is used to generate tags and improve search results.
@@ -36,5 +36,5 @@ s.source_files = 'YSHTTPSpider/Classes/**/*'
 # s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'UIKit'
 s.dependency 'Alamofire'
-s.dependency 'HandyJSON'
+s.dependency 'HandyJSON', '5.0.0-beta.1'
 end

@@ -10,7 +10,7 @@ import Alamofire
 import YSHTTPSpider
 enum Common {
     // MARK: - 获取地址三级分类数据
-    case getAllRegion()
+    case getAllRegion
     
     
 }

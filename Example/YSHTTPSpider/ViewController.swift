@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         }
         
 
-        Spi(Common.getAllRegion()).send().responseSpiObjects { (response:DataResponse<[AppInfo]>) in
+        Spi(Common.getAllRegion).send().responseSpiObjects { (response:DataResponse<[AppInfo]>) in
             switch response.result {
             case .success(let value):
                 print(value)
