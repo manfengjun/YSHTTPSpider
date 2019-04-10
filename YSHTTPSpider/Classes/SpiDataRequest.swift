@@ -56,7 +56,8 @@ extension DataRequest {
 // MARK: - 解析对象
 extension DataRequest {
     public static func ObjectSerializer<T: HandyJSON>(
-        options: JSONSerialization.ReadingOptions = .allowFragments, designatedPath: String? = nil)
+        options: JSONSerialization.ReadingOptions = .allowFragments,
+        designatedPath: String? = nil)
         -> DataResponseSerializer<T>
     {
         return DataResponseSerializer<T>(serializeResponse: { (request, response, data, error) -> Result<T> in
@@ -102,7 +103,7 @@ extension DataRequest {
     /// - Returns:
     @discardableResult
     public func responseSpiObject<T: HandyJSON>(designatedPath: String? = nil, queue: DispatchQueue? = nil, options: JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
-        return response(responseSerializer: DataRequest.ObjectSerializer(options: options), completionHandler: completionHandler)
+        return response(responseSerializer: DataRequest.ObjectSerializer(options: options,designatedPath: designatedPath), completionHandler: completionHandler)
     }
     
 }
