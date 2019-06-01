@@ -22,7 +22,7 @@ pod 'YSHTTPSpider'
 
 ## Author
 
-liufengjun, chinafengjun@gmail.com
+liufengjun, 102882723@qq.com, chinafengjun@gmail.com
 
 ## License
 

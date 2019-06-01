@@ -9,9 +9,13 @@
 import UIKit
 import HandyJSON
 struct AppInfo: HandyJSON {
-    var title: String?
+    var titles: String?
     var content: String?
     var authors: String?
+    mutating func mapping(mapper: HelpingMapper) {
+        mapper <<< self.titles <-- "title"
+
+    }
 }
 
 
